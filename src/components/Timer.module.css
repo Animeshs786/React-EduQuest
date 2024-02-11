@@ -1,0 +1,29 @@
+.timerWrapper {
+  border: 2px solid gray;
+  background: #e3dede;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 5px 10px;
+}
+
+.timerWrapper > div span:first-child {
+  font-size: 22px;
+  display: block;
+  text-align: center;
+}
+
+.timerWrapper > div span:last-child {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+@media (max-width: 1024px) {
+  .timerWrapper > div span:first-child {
+    font-size: 18px;
+  }
+
+  .timerWrapper > div span:last-child {
+    font-size: 13px;
+  }
+}

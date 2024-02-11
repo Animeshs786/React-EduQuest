@@ -1,0 +1,309 @@
+.examPageMainWrapper {
+  height: 100dvh;
+  display: flex;
+  gap: 20px;
+  padding: 20px 10px;
+}
+.examPageMainWrapper .questionWrapper {
+  width: 100%;
+}
+.examPageMainWrapper .questionWrapper header {
+  width: 100%;
+}
+
+.examPageMainWrapper .questionWrapper header h1 {
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.examPageMainWrapper .questionWrapper header :global(.questionTabWrapper) {
+  border: 2px solid black;
+  padding: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.examPageMainWrapper
+  .questionWrapper
+  header
+  :global(.questionTabWrapper)
+  > button {
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 7px;
+  color: #fff;
+  background: #3f51b5;
+}
+
+.examPageMainWrapper
+  .questionWrapper
+  header
+  :global(.questionTabWrapper)
+  > button:global(.active) {
+  color: black;
+  background: #61ece5;
+}
+
+.examPageMainWrapper .questionBox {
+  margin-top: 15px;
+  border: 2px solid black;
+}
+
+.examPageMainWrapper .questionBox .questionOverview {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+  padding: 10px;
+  align-items: center;
+}
+
+.examPageMainWrapper .questionBox .questionOverview > div:last-child {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.examPageMainWrapper .questionBox .questionOverview strong,
+.questionOverview label {
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+}
+
+.examPageMainWrapper .questionBox .questionOverview > div:first-child span {
+  font-size: 18px;
+}
+
+.examPageMainWrapper .questionBox .questionOverview > div:last-child select {
+  font-size: 18px;
+  padding: 0px 5px;
+}
+
+.examPageMainWrapper
+  .questionBox
+  .questionOverview
+  > div:last-child
+  select:focus {
+  outline: none;
+}
+
+.examPageMainWrapper
+  .questionBox
+  .questionOverview
+  > div:last-child
+  > div:nth-child(2)
+  span {
+  font-size: 18px;
+  color: green;
+  font-weight: 500;
+}
+
+.examPageMainWrapper
+  .questionBox
+  .questionOverview
+  > div:last-child
+  > div:nth-child(3)
+  span {
+  font-size: 18px;
+  color: red;
+  font-weight: 500;
+}
+
+.examPageMainWrapper .submitWrapper {
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid black;
+  padding: 10px;
+}
+.examPageMainWrapper .submitWrapper > div {
+  display: flex;
+  gap: 15px;
+}
+.examPageMainWrapper .submitWrapper > div button {
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 7px;
+  color: #408f8e;
+  background: #61ece5;
+}
+
+.examPageMainWrapper .submitWrapper > button {
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 7px;
+  color: #fff;
+  font-weight: 500;
+  background: #3f51b5;
+}
+
+.examPageMainWrapper .resultWrapper {
+  max-width: 350px;
+  min-width: 350px;
+}
+
+.examPageMainWrapper .resultWrapper p {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.examPageMainWrapper .resultWrapper .questionPaletteWrapper {
+  background: #61ece5;
+  padding: 10px;
+}
+.examPageMainWrapper
+  .resultWrapper
+  .questionPaletteWrapper
+  .legendBox
+  > div:nth-child(2) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  max-width: 330px;
+  padding: 10px 16px;
+}
+.examPageMainWrapper
+  .resultWrapper
+  .questionPaletteWrapper
+  .legendBox
+  > div:nth-child(2)
+  > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.examPageMainWrapper
+  .resultWrapper
+  .questionPaletteWrapper
+  .legendBox
+  > div:nth-child(2)
+  > div:nth-child(4) {
+  margin-right: 21px;
+}
+.examPageMainWrapper
+  .resultWrapper
+  .questionPaletteWrapper
+  .legendBox
+  > div:nth-child(3) {
+  display: flex;
+  gap: 5px;
+  font-size: 16px;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.examPageMainWrapper
+  .resultWrapper
+  .questionPaletteWrapper
+  .legendBox
+  > div:nth-child(3)
+  select {
+  width: 100%;
+  max-width: 300px;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.examPageMainWrapper
+  .resultWrapper
+  .questionPaletteWrapper
+  .legendBox
+  > div:last-child {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.examPageMainWrapper
+  .resultWrapper
+  .questionPaletteWrapper
+  .legendBox
+  > div:last-child
+  button {
+  border: 1px solid #3b837f;
+  font-size: 14px;
+  cursor: pointer;
+  height: 30px;
+  width: 141px;
+  color: black;
+  background: transparent;
+}
+
+.examPageMainWrapper
+  .resultWrapper
+  .questionPaletteWrapper
+  .legendBox
+  > div:last-child
+  button:last-child {
+  font-weight: 500;
+}
+
+.examPageMainWrapper .resultWrapper .questionPaletteWrapper .paletteItem {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 10px 16px;
+  max-width: 316px;
+  max-height: 201px;
+  min-height: 200px;
+  overflow-y: scroll;
+}
+
+@media (max-width: 1024px) {
+  .examPageMainWrapper .questionBox .questionOverview strong,
+  .questionOverview label {
+    font-size: 13px;
+  }
+
+  .examPageMainWrapper .questionBox .questionOverview > div:last-child select {
+    font-size: 13px;
+  }
+
+  .examPageMainWrapper
+    .questionBox
+    .questionOverview
+    > div:last-child
+    > div:nth-child(2)
+    span {
+    font-size: 13px;
+  }
+
+  .examPageMainWrapper
+    .questionBox
+    .questionOverview
+    > div:last-child
+    > div:nth-child(3)
+    span {
+    font-size: 13px;
+  }
+
+  .examPageMainWrapper .questionWrapper header h1 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 850px) {
+  .examPageMainWrapper {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 550px) {
+  .examPageMainWrapper .questionBox .questionOverview {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .examPageMainWrapper .submitWrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

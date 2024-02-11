@@ -1,0 +1,18 @@
+.questionContent .question {
+  border-bottom: 1px solid #c6bebe;
+  padding: 10px 25px;
+}
+
+.questionContent .question p {
+  font-size: 18px;
+  font-weight: 400;
+  word-wrap: break-word;
+  line-height: 1.3;
+}
+
+
+@media (max-width: 550px) {
+  .questionContent .question p {
+    font-size: 15px;
+  }
+}
