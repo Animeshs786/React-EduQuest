@@ -14,7 +14,10 @@ const updateQuizQuestionState = (
     ...state,
     point: state.point + (currentOption === "" ? 0 : isCorrect ? 4 : -1),
     correctAnswer: state.correctAnswer + (isCorrect ? 1 : 0),
-    wrongAnswer: state.wrongAnswer + (!isCorrect ? 1 : 0),
+    wrongAnswer:
+      currentOption === ""
+        ? state.wrongAnswer
+        : state.wrongAnswer + (!isCorrect ? 1 : 0),
     currentOption: "",
     quizQuestion: {
       ...state.quizQuestion,
@@ -22,13 +25,14 @@ const updateQuizQuestionState = (
         ...questionState,
         notVisited: questionState.notVisited - 1,
         index: isLastQuestion ? index : index + 1,
-        [actionType === "quiz/markReview" ? "marked" : "answered"]:
+        visitedAll: isLastQuestion ? true : false,
+        [actionType === "quiz/markReview" ? "marked" : "notAnswered"]:
           currentOption === ""
             ? questionState[
-                actionType === "quiz/markReview" ? "marked" : "answered"
+                actionType === "quiz/markReview" ? "marked" : "notAnswered"
               ] + 1
             : questionState[
-                actionType === "quiz/markReview" ? "marked" : "answered"
+                actionType === "quiz/markReview" ? "marked" : "notAnswered"
               ],
         [actionType === "quiz/markReview" ? "markedAnswered" : "answered"]:
           currentOption === ""
@@ -42,7 +46,6 @@ const updateQuizQuestionState = (
           if (i === index) {
             return {
               ...question,
-              // legend: currentOption === "" ? "marked" : "markedAnswered",
               legend:
                 actionType === "quiz/markReview"
                   ? currentOption === ""
@@ -102,6 +105,12 @@ const quizReducer = (state = initialState, action) => {
     case "quiz/timeout":
       return { ...state, timeout: true };
 
+    case "quiz/submit":
+      return { ...state, completed: true };
+
+    case "quiz/timetaken":
+      return { ...state, timetaken:action.payload };
+
     default:
       return state;
   }
@@ -131,6 +140,14 @@ export const timeoutHandler = () => {
   return { type: "quiz/timeout" };
 };
 
+export const quizSubmitHandler = () => {
+  return { type: "quiz/submit" };
+};
+
 export const setResponseHandler = (res) => {
   return { type: "quiz/setResponse", payload: res };
+};
+
+export const setTimeTakenHandler = (res) => {
+  return { type: "quiz/timetaken", payload: res };
 };

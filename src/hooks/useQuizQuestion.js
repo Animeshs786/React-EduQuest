@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { useSubject } from "./useSubject";
+import { useQuizResult } from "./useQuizResult";
 
 export const useQuizQuestion = () => {
-  const currentSubject = useSubject();
+  const {currentSubject} = useQuizResult();
   return useSelector((state) => state.quiz.quizQuestion[currentSubject]);
 };

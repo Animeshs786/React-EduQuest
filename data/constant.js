@@ -6,6 +6,8 @@ export const initialState = {
   currentOption: "",
   clearResponse: false,
   timeout: false,
+  completed: false,
+  timetaken:0,
   quizQuestion: {
     Chemistry: {
       answered: 0,
@@ -14,6 +16,7 @@ export const initialState = {
       marked: 0,
       markedAnswered: 0,
       index: 0,
+      visitedAll: false,
       questions: [
         {
           question: "The mass number of nucleus is",
@@ -64,11 +67,12 @@ export const initialState = {
     },
     Physics: {
       answered: 0,
-      notVisited: 6,
+      notVisited: 5,
       notAnswered: 0,
       marked: 0,
       markedAnswered: 0,
       index: 0,
+      visitedAll: false,
       questions: [
         {
           question: "What is the SI unit of force?",
@@ -129,12 +133,47 @@ export const initialState = {
       marked: 0,
       markedAnswered: 0,
       index: 0,
+      visitedAll: false,
       questions: [
         {
           question: "What is the value of pi (π) to two decimal places?",
           options: ["3.19", "3.14", "3.18", "3.20"],
-          subject: "Math",
           correctOption: 1,
+          legend: "notVisited",
+          selectedOption: "",
+        },
+        {
+          question: "What is the square root of 144?",
+          options: ["12", "11", "10", "14"],
+          correctOption: 0,
+          legend: "notVisited",
+          selectedOption: "",
+        },
+        {
+          question: "What is the result of 5 squared?",
+          options: ["25", "20", "30", "15"],
+          correctOption: 0,
+          legend: "notVisited",
+          selectedOption: "",
+        },
+        {
+          question: "What is the equation of a line in slope-intercept form?",
+          options: [
+            "y = a(x - h)^3 + k",
+            "y = ax^2 + bx + c",
+            "y = a(x - h)^2 + k",
+            "y = mx + b",
+          ],
+          correctOption: 3,
+          legend: "notVisited",
+          selectedOption: "",
+        },
+        {
+          question: "What is the value of the cosine function at 0 degrees?",
+          options: ["0", "1", "-1", "Undefined"],
+          correctOption: 1,
+          legend: "notVisited",
+          selectedOption: "",
         },
       ],
     },
@@ -144,7 +183,7 @@ export const initialState = {
 export const defaultOption = {
   rightMark: 4,
   negativeMark: 1,
-  time: 1, // in minute
+  time: 5, // in minute
 };
 
 export const existingUser = [

@@ -11,14 +11,17 @@ import Timer from "../components/Timer";
 import styles from "./ExamPage.module.css";
 import {
   markReviewHandler,
+  quizSubmitHandler,
   saveQuizHandler,
   setResponseHandler,
 } from "../slice/quizSlice";
 import { useQuizQuestion } from "../hooks/useQuizQuestion";
 
-function ExamPage() {
+function ExamPage({ setShowQuiz }) {
   const dispatch = useDispatch();
-  const { currentOption, timeout } = useSelector((state) => state.quiz);
+  const { currentOption, timeout, completed } = useSelector(
+    (state) => state.quiz
+  );
 
   const {
     index,
@@ -28,6 +31,7 @@ function ExamPage() {
     marked,
     markedAnswered,
     questions,
+    visitedAll,
   } = useQuizQuestion();
 
   const markHandler = () => {
@@ -43,9 +47,25 @@ function ExamPage() {
     dispatch(setResponseHandler(true));
   };
 
+  const profileHandler = () => {
+    if (!completed) {
+      alert("Submit the quiz first to access profile.");
+      return;
+    }
+    setShowQuiz((prev) => !prev);
+  };
+
+  const submitHandler = () => {
+    const confirm = window.confirm("Are you sure want to submit the quiz.");
+
+    if (confirm) {
+      dispatch(quizSubmitHandler());
+    }
+  };
+
   const questionNumber = index + 1;
-  // const isDisabled = questions.length - 1 <= index;
-  const isDisabled = timeout || questions.length - 1 <= index;
+
+  const isDisabled = completed ? completed : timeout || visitedAll;
 
   return (
     <div className={styles.examPageMainWrapper}>
@@ -54,31 +74,41 @@ function ExamPage() {
           <h1>Demo Exam</h1>
           <QuestionTab />
         </header>
-        <div className={styles.questionBox}>
-          <div className={styles.questionOverview}>
-            <div>
-              <strong>Question No.</strong>
-              <span>{questionNumber}</span>
+
+        <div className={styles.profileBox}>
+          <Timer />
+          <p>Demo User</p>
+        </div>
+      </div>
+
+      <div className={styles.resultWrapper}>
+        <div className={styles.outterWrapper}>
+          <div className={styles.questionBox}>
+            <div className={styles.questionOverview}>
+              <div>
+                <strong>Question No.</strong>
+                <span>{questionNumber}</span>
+              </div>
+              <div>
+                <div>
+                  <label>View In</label>
+                  <span>:</span>
+                  <select>
+                    <option value="English">English</option>
+                  </select>
+                </div>
+                <div>
+                  <strong>Right Mark</strong>
+                  <span>:4.00</span>
+                </div>
+                <div>
+                  <strong>Negative Mark</strong>
+                  <span>:1.00</span>
+                </div>
+              </div>
             </div>
-            <div>
-              <div>
-                <label>View In</label>
-                <span>:</span>
-                <select>
-                  <option value="English">English</option>
-                </select>
-              </div>
-              <div>
-                <strong>Right Mark</strong>
-                <span>:4.00</span>
-              </div>
-              <div>
-                <strong>Negative Mark</strong>
-                <span>:1.00</span>
-              </div>
-            </div>
+            <Question />
           </div>
-          <Question />
           <div className={styles.submitWrapper}>
             <div>
               <button
@@ -106,11 +136,6 @@ function ExamPage() {
             </button>
           </div>
         </div>
-      </div>
-
-      <div className={styles.resultWrapper}>
-        <Timer />
-        <p>Demo User</p>
 
         <div className={styles.questionPaletteWrapper}>
           <div className={styles.paletteBox}>
@@ -128,7 +153,7 @@ function ExamPage() {
                     )}
                     {item.legend === "marked" && <Marke>{i + 1}</Marke>}
                     {item.legend === "notAnswered" && (
-                      <notAnswered>{i + 1}</notAnswered>
+                      <NotAnswer>{i + 1}</NotAnswer>
                     )}
                   </div>
                 );
@@ -170,8 +195,14 @@ function ExamPage() {
             <div>
               <button>Question paper</button>
               <button>Instruction</button>
-              <button>Profile</button>
-              <button>Save</button>
+              <button onClick={profileHandler}>Profile</button>
+              <button
+                className={`${completed ? "disabled" : ""}`}
+                disabled={completed}
+                onClick={submitHandler}
+              >
+                Save
+              </button>
             </div>
           </div>
         </div>

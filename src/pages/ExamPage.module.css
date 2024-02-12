@@ -1,11 +1,19 @@
 .examPageMainWrapper {
-  height: 100dvh;
-  display: flex;
-  gap: 20px;
+  /* height: 100dvh; */
   padding: 20px 10px;
 }
 .examPageMainWrapper .questionWrapper {
+  display: flex;
+  gap: 20px;
+}
+.profileBox {
   width: 100%;
+  max-width: 350px;
+}
+.resultWrapper {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
 }
 .examPageMainWrapper .questionWrapper header {
   width: 100%;
@@ -45,10 +53,14 @@
   color: black;
   background: #61ece5;
 }
-
+.outterWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 .examPageMainWrapper .questionBox {
-  margin-top: 15px;
   border: 2px solid black;
+  height: 100%;
 }
 
 .examPageMainWrapper .questionBox .questionOverview {
@@ -67,17 +79,17 @@
 
 .examPageMainWrapper .questionBox .questionOverview strong,
 .questionOverview label {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   color: black;
 }
 
 .examPageMainWrapper .questionBox .questionOverview > div:first-child span {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .examPageMainWrapper .questionBox .questionOverview > div:last-child select {
-  font-size: 18px;
+  font-size: 16px;
   padding: 0px 5px;
 }
 
@@ -95,7 +107,7 @@
   > div:last-child
   > div:nth-child(2)
   span {
-  font-size: 18px;
+  font-size: 16px;
   color: green;
   font-weight: 500;
 }
@@ -106,7 +118,7 @@
   > div:last-child
   > div:nth-child(3)
   span {
-  font-size: 18px;
+  font-size: 16px;
   color: red;
   font-weight: 500;
 }
@@ -114,7 +126,9 @@
 .examPageMainWrapper .submitWrapper {
   display: flex;
   justify-content: space-between;
-  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
   padding: 10px;
 }
 .examPageMainWrapper .submitWrapper > div {
@@ -140,21 +154,16 @@
   background: #3f51b5;
 }
 
-.examPageMainWrapper .resultWrapper {
-  max-width: 350px;
-  min-width: 350px;
-}
-
 .examPageMainWrapper .resultWrapper p {
   font-size: 18px;
   font-weight: 500;
-  margin-top: 5px;
-  margin-bottom: 15px;
 }
 
 .examPageMainWrapper .resultWrapper .questionPaletteWrapper {
   background: #61ece5;
   padding: 10px;
+  width: 100%;
+  max-width: 350px;
 }
 .examPageMainWrapper
   .resultWrapper
@@ -285,14 +294,25 @@
     font-size: 13px;
   }
 
+  .examPageMainWrapper .questionBox .questionOverview > div:first-child span {
+    font-size: 13px;
+  }
+
   .examPageMainWrapper .questionWrapper header h1 {
     font-size: 22px;
   }
 }
 
 @media (max-width: 850px) {
-  .examPageMainWrapper {
+  .resultWrapper {
     flex-direction: column;
+  }
+  .examPageMainWrapper .questionWrapper {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+  .profileBox {
+    max-width: 100%;
   }
 }
 

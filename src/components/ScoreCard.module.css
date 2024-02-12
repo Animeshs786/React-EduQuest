@@ -1,0 +1,145 @@
+.profileBox header > div {
+  display: flex;
+  font-size: 20px;
+  gap: 4px;
+  margin: 25px 0;
+}
+.profileBox header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.profileBox header > button {
+  font-size: 15px;
+  padding: 3px 15px;
+  border: 2px solid #66c8f5;
+  background: #2196f3;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+}
+.tableWrapper {
+  width: 100%;
+  overflow: auto;
+}
+.profileBox table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 730px;
+}
+
+.profileBox table tbody td {
+  border-top: 1px solid #c0bcbc;
+  font-size: 16px;
+  color: #312e2e;
+  font-weight: 400;
+  text-align: start;
+  min-width: 80px;
+  padding: 10px 0;
+  padding-left: 5px;
+}
+
+.true {
+  color: #03a9f4 !important;
+}
+
+.falsy {
+  color: #e00e0e !important;
+}
+
+.passed {
+  background: #1fa91f;
+  color: white;
+  padding: 3px 5px;
+  font-size: 13px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.failed {
+  background: #e00e0e;
+  color: white;
+  padding: 3px 5px;
+  font-size: 13px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.pieChart {
+  width: 50%;
+}
+
+.barChart {
+  width: 85%;
+}
+
+.chartWrapper {
+  display: flex;
+  margin: 30px 0;
+}
+
+.pieBox,
+.barBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.heading {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+.heading span {
+  margin-left: 4px;
+}
+
+@media (max-width: 1100px) {
+  .profileBox table tbody td {
+    font-size: 10px;
+  }
+  .falsy,
+  .true,
+  .result {
+    text-align: center !important;
+  }
+
+  .failed,
+  .passed {
+    font-size: 10px;
+  }
+
+  .profileBox header > div {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .heading {
+    font-size: 16px;
+    text-align: center;
+  }
+  .chartWrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .pieChart {
+    width: 45%;
+  }
+
+  .barChart {
+    width: 65%;
+  }
+}
+
+@media (max-width: 500px) {
+  .pieChart {
+    width: 75%;
+  }
+
+  .barChart {
+    width: 90%;
+  }
+}
