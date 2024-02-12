@@ -1,0 +1,50 @@
+.questionMainWrapper {
+  border: 1px solid;
+  width: 100%;
+  margin: 30px 0;
+  min-height: 500px;
+  max-height: 500px;
+  overflow: auto;
+}
+
+.questionBox {
+  display: flex;
+  gap: 5px;
+  align-items: top;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.answerBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 33px;
+}
+
+.answerBox > div {
+  font-size: 16px;
+}
+
+.answerBox > div span:first-child {
+  font-weight: 500;
+}
+
+.subjectName {
+  font-size: 20px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .questionBox {
+    font-size: 16px;
+  }
+
+  .answerBox > div {
+    font-size: 13px;
+  }
+  .subjectName {
+    font-size: 15px;
+  }
+}

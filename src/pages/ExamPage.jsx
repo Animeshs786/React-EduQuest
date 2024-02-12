@@ -140,24 +140,26 @@ function ExamPage({ setShowQuiz }) {
         <div className={styles.questionPaletteWrapper}>
           <div className={styles.paletteBox}>
             <h4>Question Palette</h4>
-            <div className={styles.paletteItem}>
-              {questions.map((item, i) => {
-                return (
-                  <div key={i}>
-                    {item.legend === "notVisited" && (
-                      <NotVisited>{i + 1}</NotVisited>
-                    )}
-                    {item.legend === "answered" && <Answer>{i + 1}</Answer>}
-                    {item.legend === "markedAnswered" && (
-                      <AnswerMarke>{i + 1}</AnswerMarke>
-                    )}
-                    {item.legend === "marked" && <Marke>{i + 1}</Marke>}
-                    {item.legend === "notAnswered" && (
-                      <NotAnswer>{i + 1}</NotAnswer>
-                    )}
-                  </div>
-                );
-              })}
+            <div className={styles.paletteOuter}>
+              <div className={styles.paletteItem}>
+                {questions.map((item, i) => {
+                  return (
+                    <div key={i}>
+                      {item.legend === "notVisited" && (
+                        <NotVisited>{i + 1}</NotVisited>
+                      )}
+                      {item.legend === "answered" && <Answer>{i + 1}</Answer>}
+                      {item.legend === "markedAnswered" && (
+                        <AnswerMarke>{i + 1}</AnswerMarke>
+                      )}
+                      {item.legend === "marked" && <Marke>{i + 1}</Marke>}
+                      {item.legend === "notAnswered" && (
+                        <NotAnswer>{i + 1}</NotAnswer>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
           <div className={styles.legendBox}>

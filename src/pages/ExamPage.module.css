@@ -254,16 +254,17 @@
   button:last-child {
   font-weight: 500;
 }
-
+.paletteOuter {
+  max-height: 201px;
+  min-height: 200px;
+  overflow-y: scroll;
+  max-width: 316px;
+}
 .examPageMainWrapper .resultWrapper .questionPaletteWrapper .paletteItem {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   padding: 10px 16px;
-  max-width: 316px;
-  max-height: 201px;
-  min-height: 200px;
-  overflow-y: scroll;
 }
 
 @media (max-width: 1024px) {

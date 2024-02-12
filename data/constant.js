@@ -7,17 +7,36 @@ export const initialState = {
   clearResponse: false,
   timeout: false,
   completed: false,
-  timetaken:0,
+  timetaken: 0,
   quizQuestion: {
     Chemistry: {
       answered: 0,
-      notVisited: 5,
+      notVisited: 8,
       notAnswered: 0,
       marked: 0,
       markedAnswered: 0,
       index: 0,
       visitedAll: false,
       questions: [
+        {
+          question: "Which element has the atomic number 6?",
+          options: ["Carbon", "Oxygen", "Nitrogen", "Hydrogen"],
+          correctOption: 0,
+          selectedOption: "",
+          legend: "notVisited",
+        },
+        {
+          question: "What is Avogadro's number?",
+          options: [
+            "6.02 x 10^23",
+            "3.14 x 10^23",
+            "1.67 x 10^-27",
+            "9.81 m/s^2",
+          ],
+          correctOption: 0,
+          selectedOption: "",
+          legend: "notVisited",
+        },
         {
           question: "The mass number of nucleus is",
           options: [
@@ -27,6 +46,13 @@ export const initialState = {
             "A fraction",
           ],
           correctOption: 1,
+          selectedOption: "",
+          legend: "notVisited",
+        },
+        {
+          question: "What is the charge of an electron?",
+          options: ["Positive", "Neutral", "Negative", "Variable"],
+          correctOption: 2,
           selectedOption: "",
           legend: "notVisited",
         },

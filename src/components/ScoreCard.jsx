@@ -112,12 +112,7 @@ function ScoreCard({ setShowQuiz }) {
     datasets: [
       {
         label: "Question & Mark Report",
-        data: [
-          correctAnswer || 10,
-          wrongAnswer || 30,
-          rightMark || 10,
-          negativeMark || 40,
-        ],
+        data: [correctAnswer, wrongAnswer, rightMark, negativeMark],
         backgroundColor: [
           "rgba(255, 99, 132)",
           "rgba(54, 162, 235)",
@@ -134,7 +129,7 @@ function ScoreCard({ setShowQuiz }) {
     datasets: [
       {
         label: "Student Performance",
-        data: [correctAnswer || 10, wrongAnswer || 30],
+        data: [correctAnswer, wrongAnswer],
         backgroundColor: ["rgba(255, 99, 132)", "rgba(54, 162, 235)"],
         borderWidth: 1,
       },
